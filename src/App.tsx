@@ -22,7 +22,7 @@ const firebaseConfig = {
 type Admins = {
     email: string;
     name: string;
-    isAdmin: bool;
+    isAdmin: boolean;
 }
 
 const unitsCollection = buildCollection<Admins>({
@@ -55,7 +55,7 @@ const unitsCollection = buildCollection<Admins>({
          isAdmin: {
             name: "isAdmin",
             validation: { required: true },
-            dataType: "bool",
+            dataType: "boolean",
             multiline: false
         }
     }
