@@ -27,7 +27,15 @@ import {
     useValidateAuthenticator
 } from "firecms";
 
-import { firebaseConfig } from "../firebase_config";
+const firebaseConfig = {
+    apiKey: "AIzaSyBw4mgLgM6im3_xsLe7DTa9P7ONm9GjnjU",
+    authDomain: "phoenix-c88b9.firebaseapp.com",
+    projectId: "phoenix-c88b9",
+    storageBucket: "phoenix-c88b9.appspot.com",
+    messagingSenderId: "974004018957",
+    appId: "1:974004018957:web:4b0291359f5e7dc13b5a44",
+    measurementId: "G-VS8D3ZRBCJ"
+  };
 
 const DEFAULT_SIGN_IN_OPTIONS = [
     GoogleAuthProvider.PROVIDER_ID
