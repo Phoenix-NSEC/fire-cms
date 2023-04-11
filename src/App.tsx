@@ -56,7 +56,6 @@ const unitsCollection = buildCollection<Admins>({
             name: "isAdmin",
             validation: { required: true },
             dataType: "boolean",
-            multiline: false
         }
     }
 });
