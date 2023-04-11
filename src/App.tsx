@@ -64,18 +64,12 @@ export default function App() {
 
     const collectionBuilder: EntityCollectionsBuilder = async ({ dataSource }) => {
         const units = await dataSource.fetchCollection<Admins>({
+            name: "Admins",
             path: "Admins",
-            collection: unitsCollection
+            properties: {}
         });
-        const lessonCollections = units.map(unit => buildCollection({
-            name: unit.values.name,
-            path: `units/${unit.id}/lessons`,
-            group: "Admins",
-        }));
-
         return [
-            unitsCollection,
-            ...lessonCollections
+            unitsCollection
         ]
     };
 
