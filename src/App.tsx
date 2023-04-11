@@ -74,7 +74,7 @@ export default function App() {
             group: "Admins",
             properties: {
                 name: {
-                    name: "Name",
+                    name: "name",
                     dataType: "string"
                 }
             }
