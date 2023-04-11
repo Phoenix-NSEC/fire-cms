@@ -70,7 +70,7 @@ export default function App() {
         const lessonCollections = units.map(unit => buildCollection({
             name: unit.values.name,
             path: `units/${unit.id}/lessons`,
-            description: unit.values.description,
+            email: unit.values.email,
             group: "Admins",
             properties: {
                 name: {
