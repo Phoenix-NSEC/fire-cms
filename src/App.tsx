@@ -19,16 +19,17 @@ const firebaseConfig = {
   measurementId: "G-VS8D3ZRBCJ"
 };
 
-type Unit = {
+type Admins = {
+    email: string;
     name: string;
-    description: string;
+    isAdmin: bool;
 }
 
-const unitsCollection = buildCollection<Unit>({
-    name: "Units",
-    singularName: "Unit",
+const unitsCollection = buildCollection<Admins>({
+    name: "Admins",
+    singularName: "Admins",
     group: "Main",
-    path: "units",
+    path: "Admins",
     customId: true,
     icon: "LocalLibrary",
     callbacks: {
@@ -40,16 +41,22 @@ const unitsCollection = buildCollection<Unit>({
         }
     },
     properties: {
-        name: {
-            name: "Name",
+        email: {
+            name: "email",
             validation: { required: true },
             dataType: "string"
         },
-        description: {
-            name: "Description",
+        name: {
+            name: "name",
             validation: { required: true },
             dataType: "string",
             multiline: true
+        },
+         isAdmin: {
+            name: "isAdmin",
+            validation: { required: true },
+            dataType: "bool",
+            multiline: false
         }
     }
 });
@@ -57,15 +64,15 @@ const unitsCollection = buildCollection<Unit>({
 export default function App() {
 
     const collectionBuilder: EntityCollectionsBuilder = async ({ dataSource }) => {
-        const units = await dataSource.fetchCollection<Unit>({
-            path: "units",
+        const units = await dataSource.fetchCollection<Admins>({
+            path: "Admins",
             collection: unitsCollection
         });
         const lessonCollections = units.map(unit => buildCollection({
             name: unit.values.name,
             path: `units/${unit.id}/lessons`,
             description: unit.values.description,
-            group: "Units",
+            group: "Admins",
             properties: {
                 name: {
                     name: "Name",
@@ -81,7 +88,7 @@ export default function App() {
     };
 
     return <FirebaseCMSApp
-        name={"My learning app"}
+        name={"Phoenix Admin"}
         collections={collectionBuilder}
         firebaseConfig={firebaseConfig}
     />;
